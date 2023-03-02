@@ -8,6 +8,8 @@ Try it out live; right here: https://dkzeb.github.io/raycastrz/
 - **WASD + Arrow Left & Right:** Movement, strafing and rotation
 - **Arrow Up:** Fire Weapon - *(yeah it seems wierd, but give it a try, it makes sense)*
 - **1 - 3:** Switch Weapons - *(Pistol, Shotgun, Uzi)*
+- **m:** Show/Hide overhead map
+- **Shift:** Walk speed modifier
 
 #### Bleeding edge?: 
 
