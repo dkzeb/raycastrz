@@ -36,7 +36,13 @@ jobs:
           path: |
               ./node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+      - name: NPM CI
+        run: npm ci
+        shell: bash
       - name: NPM Install
+        run: npm install
+        shell: bash
+      - name: NPM Build
         run: npm run build
         shell: bash
       - name: Setup Pages
