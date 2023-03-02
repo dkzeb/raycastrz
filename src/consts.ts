@@ -4,7 +4,7 @@ export const aspectRatioFactor = window.innerHeight / window.innerWidth;
 
 
 export const WIDTH = Math.floor(window.innerWidth * percentageResolution);
-export const HEIGHT = Math.floor(window.innerWidth * aspectRatioFactor * percentageResolution); // window.innerHeight * percentageResolution;
+export const HEIGHT = Math.floor(window.innerWidth * aspectRatioFactor * percentageResolution);
 export const TICK = 30;
 export const CELL_SIZE = 64;
 export const PLAYER_SIZE = 10;
@@ -15,7 +15,6 @@ export const FOVDEGREES = 60;
 export const FOV = toRadians(FOVDEGREES);
 
 export const PROJECTION_PLANE_DISTANCE = Math.floor((WIDTH / 2) / Math.tan(FOV / 2));
-//export const PROJECTION_PLANE_DISTANCE = Math.floor((WIDTH / 2) / Math.tan((30 * Math.PI) / 100));
 
 export const COLORS = {
     rays: "#ffa600",
