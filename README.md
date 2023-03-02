@@ -1,7 +1,13 @@
 # RayCastrZ
-This is the future - the future is 1992
+**This** is the **future** - *the **future** is* **1992**
 ## Ok, thats when ... but where?
 Try it out live; right here: https://dkzeb.github.io/raycastrz/
+
+#### Controls:
+
+- **WASD + Arrow Left & Right:** Movement, strafing and rotation
+- **Arrow Up:** Fire Weapon - *(yeah it seems wierd, but give it a try, it makes sense)*
+- **1 - 3:** Switch Weapons - *(Pistol, Shotgun, Uzi)*
 
 #### Bleeding edge?: 
 
