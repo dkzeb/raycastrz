@@ -33,7 +33,7 @@ Besides this, it has basic animated sprite support for weapons, and it handles i
 - [x] Wall Rendering
 - [x] Floor casting / Ceiling casting
 - [x] Weapons - with animations, fire rate, etc.
-- [ ] Collisions
+- [x] Collisions
 - [ ] Actual weapons fire mechanics (hitscan / projectile)
 - [ ] General sprites; props, pickups, decorations 
 - [ ] Animated Sprites & Characters 
@@ -41,6 +41,7 @@ Besides this, it has basic animated sprite support for weapons, and it handles i
 - [ ] Doors (of some type - not sure yet)
 - [ ] UI
 - [ ] Sound (music, sfx, etc)
+- [ ] Improved character physics (sliding of walls, etc.)
 
 Other than that im pretty happy with the progress so far, this has been a learning experience at it continues to be so!
 
