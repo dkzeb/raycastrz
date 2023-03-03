@@ -88,18 +88,10 @@ export function movePlayer(controlState: ControlState, player: Player, map: numb
         y: moveY
     };
 
-    if(CheckCollisionOnMap(player, map)) {
-        moveX = 0;
-        moveY = 0;
+    if(CheckCollisionOnMap(player, map)) {                
+        player.dirV = {x: 0, y: 0}
     }    
-    /* COLLISION IDEA
-            000  with dirV =
-            0X#
-            0##                
-    */      
-
-
-    // forward / backwards movement + strafe (note the inverted angle since we are switching cos/sin  
-    player.x += moveX;
-    player.y += moveY;
+    
+    player.x += player.dirV.x;
+    player.y += player.dirV.y;
 }

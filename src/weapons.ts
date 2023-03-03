@@ -33,7 +33,7 @@ export async function initWeapons(): Promise<Weapon[]> {
         },
         clipSize: 10,
         active: false,
-        fire: () => { console.log('PISTOL: BANG!') }
+        fire: () => {  }
     }
     pistol.sprites.activeSprite = pistol.sprites.idle; // set the idle sprite to active as default
     weapons.push(pistol);
@@ -66,7 +66,7 @@ export async function initWeapons(): Promise<Weapon[]> {
         },        
         active: true,
         clipSize: 0,
-        fire: () => { console.log('SHOTGUN: BOOOM') }
+        fire: () => { }
     }
     // this is a centered weapon, we calculate the center offset as - half image width
     // will most def not work for all types of centered weapons - maybe we need some kind of standard for weapons sprites that are centered ...
@@ -91,7 +91,7 @@ export async function initWeapons(): Promise<Weapon[]> {
             frameTimeout: 25,
             scale: 125 + (125 * (aspectRatioFactor / 2))       
         },
-        fire: () => { console.log('UZI: Rat tat tat tat') }
+        fire: () => { }
     }
     uzi.sprites.activeSprite = uzi.sprites.idle;
     weapons.push(uzi);
