@@ -30,7 +30,7 @@ let inventory: Inventory;
 
 function gameLoop() {
     clearScreen();
-    movePlayer(controlState, player);
+    movePlayer(controlState, player, map);
     const rays = getRays(player, map);
     renderScene(rays, player, map[0].length * CELL_SIZE, map.length * CELL_SIZE);    
     renderWeapon(inventory.activeWeapon, controlState.fireWeapon);

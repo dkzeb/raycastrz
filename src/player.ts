@@ -1,12 +1,17 @@
 import { CELL_SIZE, PLAYER_MOVE_SPEED, PLAYER_TURN_SPEED, toRadians } from "./consts";
 import { ControlState } from "./controls";
+import { CheckCollisionOnMap } from "./physics";
 
 export interface Player {
     x: number,
     y: number,
     angle: number,
     speed: number,
-    strafeSpeed: number
+    strafeSpeed: number,
+    cellX: number,
+    cellY: number,
+    dirV: {x:number, y:number}, // direction vector
+    dirM: {x: number, y: number} // direction magnitude
 }
 
 export const playerObj: Player = {
@@ -14,13 +19,17 @@ export const playerObj: Player = {
     y: CELL_SIZE * 2,
     angle: 0,
     speed: 0,
-    strafeSpeed: 0
+    strafeSpeed: 0,
+    cellX: 1,
+    cellY: 2,
+    dirV: {x: 0, y: 0},
+    dirM: {x: 0, y: 0}
 }
 
 const STRAFE_SPEED = PLAYER_MOVE_SPEED / 2;
 const TURN_SPEED = toRadians(PLAYER_TURN_SPEED);
 
-export function movePlayer(controlState: ControlState, player: Player) {
+export function movePlayer(controlState: ControlState, player: Player, map: number[][]) {
 
     if(controlState.up) {
         player.speed = PLAYER_MOVE_SPEED;
@@ -58,9 +67,6 @@ export function movePlayer(controlState: ControlState, player: Player) {
     if(controlState.turnRight) {
         player.angle += TURN_SPEED;
     }
-
-    /*if(Math.abs(player.angle) > Math.PI * 2) // we rotated 360 degrees, reset angle to 
-        player.angle = 0;*/
     
     // compensate for movement speed when both moving and strafing
     if(player.strafeSpeed !== 0 && player.speed !== 0) {
@@ -68,7 +74,32 @@ export function movePlayer(controlState: ControlState, player: Player) {
         player.strafeSpeed *= .75;    
     }
 
-    // forward / backwards movement + strafe (note the inverted angle since we are switching cos/sin    )
-    player.x += Math.cos(player.angle) * player.speed + (Math.sin(player.angle * -1) * player.strafeSpeed);
-    player.y += Math.sin(player.angle) * player.speed + (Math.cos(player.angle * -1) * player.strafeSpeed);
+    player.dirV = { x: Math.cos(player.angle), y: Math.sin(player.angle) };
+
+    // check for collisions - i know where i want to go
+    let moveX = player.dirV.x * player.speed + (Math.sin(player.angle * -1) * player.strafeSpeed);
+    let moveY = player.dirV.y * player.speed + (Math.cos(player.angle * -1) * player.strafeSpeed);
+
+    player.cellX = Math.floor(player.x / CELL_SIZE);
+    player.cellY = Math.floor(player.y / CELL_SIZE);
+
+    player.dirV = {
+        x: moveX, 
+        y: moveY
+    };
+
+    if(CheckCollisionOnMap(player, map)) {
+        moveX = 0;
+        moveY = 0;
+    }    
+    /* COLLISION IDEA
+            000  with dirV =
+            0X#
+            0##                
+    */      
+
+
+    // forward / backwards movement + strafe (note the inverted angle since we are switching cos/sin  
+    player.x += moveX;
+    player.y += moveY;
 }
