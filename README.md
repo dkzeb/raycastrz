@@ -43,6 +43,6 @@ Besides this, it has basic animated sprite support for weapons, and it handles i
 - [ ] Sound (music, sfx, etc)
 - [ ] Improved character physics (sliding of walls, etc.)
 
-Other than that im pretty happy with the progress so far, this has been a learning experience at it continues to be so!
+Other than that im pretty happy with the progress so far, this has been a learning experience and it continues to be so!
 
 
