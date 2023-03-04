@@ -48,3 +48,7 @@ export function getRndColor() {
         b = 255*Math.random()|0;
     return 'rgb(' + r + ',' + g + ',' + b + ')';
 }
+
+export function distnaceBetweenPoints(x1: number, y1: number, x2: number, y2: number): number {
+    return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1 ,2))
+}

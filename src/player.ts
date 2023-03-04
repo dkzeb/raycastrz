@@ -61,13 +61,13 @@ export function movePlayer(controlState: ControlState, player: Player, map: numb
     }   
 
     if(controlState.turnLeft) {
-        player.angle -= TURN_SPEED;
+        player.angle = (player.angle - TURN_SPEED) % (Math.PI * 2);
     } 
 
     if(controlState.turnRight) {
-        player.angle += TURN_SPEED;
+        player.angle = (player.angle + TURN_SPEED) % (Math.PI * 2);
     }
-    
+
     // compensate for movement speed when both moving and strafing
     if(player.strafeSpeed !== 0 && player.speed !== 0) {
         player.speed *= .75;

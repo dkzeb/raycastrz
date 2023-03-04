@@ -1,4 +1,4 @@
-import { AnimatedWeaponsSprite } from "./animatedSprites"
+import { AnimatedWeaponsSprite } from "./sprites"
 import { aspectRatioFactor } from "./consts";
 import { loadTexture } from "./rendering";
 

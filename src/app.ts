@@ -32,8 +32,8 @@ function gameLoop() {
     clearScreen();
     movePlayer(controlState, player, map);
     const rays = getRays(player, map);
-    renderScene(rays, player, map[0].length * CELL_SIZE, map.length * CELL_SIZE);    
-    renderWeapon(inventory.activeWeapon, controlState.fireWeapon);
+    //renderScene(rays, player, map[0].length * CELL_SIZE, map.length * CELL_SIZE);    
+    //renderWeapon(inventory.activeWeapon, controlState.fireWeapon);
     if(controlState.showMap) {
         renderMinimap(0,0,.1,rays, player, map);
     }
